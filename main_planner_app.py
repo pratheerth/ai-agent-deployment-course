@@ -220,7 +220,7 @@ async def get_activity_plan(city: str = Query(..., description="The city for whi
         
         output = response.get("output")
         if output:
-            friendly_greeting = f"Hello from your Activities Advisor! Here's a plan for {city}:"
+            friendly_greeting = f"Hello from your Activities Advisor!! Here's a plan for {city}:"
             print(f"AGENT_UPGRADE_V2: Sending greeting: '{friendly_greeting}")
             return PlanResponse(city=city, greeting=friendly_greeting, plan=output)
         else:
