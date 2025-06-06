@@ -195,6 +195,7 @@ app = FastAPI(
 # --- FastAPI Endpoint ---
 class PlanResponse(BaseModel):
     city: str
+    greeting: str | None = None
     plan: str | None = None
     error: str | None = None
 
@@ -219,7 +220,9 @@ async def get_activity_plan(city: str = Query(..., description="The city for whi
         
         output = response.get("output")
         if output:
-            return PlanResponse(city=city, plan=output)
+            friendly_greeting = f"Hello from your Activities Advisor! Here's a plan for {city}:"
+            print(f"AGENT_UPGRADE_V2: Sending greeting: '{friendly_greeting}")
+            return PlanResponse(city=city, greeting=friendly_greeting, plan=output)
         else:
             error_message = "Agent executed but did not produce a standard output. Raw response: " + str(response)
             print(f"Warning: {error_message}")
