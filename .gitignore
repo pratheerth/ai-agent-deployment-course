@@ -1,0 +1,17 @@
+# Environment variables - DO NOT COMMIT YOUR API KEYS!
+.env
+
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE / Editor specific (VS Code, etc.)
+.vscode/
+.idea/
+
+# Docker Desktop / Build related (optional, but can be useful)
+.docker/
+docker-compose.override.yml
